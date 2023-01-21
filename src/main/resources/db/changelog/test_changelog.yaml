@@ -1,0 +1,24 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: me
+      changes:
+        - createTable:
+            tableName: persons
+            columns:
+              - column:
+                  name: name
+                  type: VARCHAR(255)
+              - column:
+                  name: surname
+                  type: VARCHAR(255)
+              - column:
+                  name: age
+                  type: INTEGER
+              - column:
+                  name: phone_number
+                  type: VARCHAR(255)
+              - column:
+                  name: city_of_living
+                  type: VARCHAR(255)
+            primaryKey: name, surname, age
