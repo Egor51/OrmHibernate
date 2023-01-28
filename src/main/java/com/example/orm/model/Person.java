@@ -10,9 +10,16 @@ import lombok.*;
 @Setter
 @Entity
 @Table(name = "Persons")
+@IdClass(PersonId.class)
 public class Person {
-    @EmbeddedId
-    private PersonId id;
+    @Id
+    private String name;
+
+    @Id
+    private String surname;
+
+    @Id
+    private int age;
 
     @Column(name = "Phone_number")
     private String phoneNumber;
@@ -20,14 +27,6 @@ public class Person {
     @Column(name = "City_of_Living")
     private String cityOfLiving;
 
-    @Override
-    public String toString() {
-        return "Person{" +
-                "person=" + id +
-                ", phoneNumber='" + phoneNumber + '\'' +
-                ", cityOfLiving='" + cityOfLiving + '\'' +
-                '}';
-    }
 }
 
 

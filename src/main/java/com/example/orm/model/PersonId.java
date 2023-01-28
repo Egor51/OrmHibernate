@@ -15,14 +15,14 @@ import java.io.Serializable;
 @Data
 public class PersonId implements Serializable {
 
-    @Column(name = "NAME")
+    @Column(name = "name")
     private String name;
 
 
-    @Column(name = "Surname")
+    @Column(name = "surname")
     private String surname;
 
-    @Column(name = "Age")
+    @Column(name = "age")
     private int age;
 
     @Override
