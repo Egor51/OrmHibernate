@@ -15,22 +15,6 @@ import org.springframework.security.web.SecurityFilterChain;
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
-
-
-    @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        http.cors().and().csrf().disable()
-                .authorizeHttpRequests((requests) -> requests
-                        .requestMatchers("/persons/by-city/").hasAuthority("ROLE_USER")
-                        .requestMatchers("/persons/by-age/").hasAuthority("ROLE_ADMIN")
-                        .requestMatchers("/hello/").permitAll()
-                        .anyRequest().permitAll()
-                )
-                .formLogin();
-
-        return http.build();
-    }
-
     @Bean
     public UserDetailsService userDetailsService() {
         UserDetails user = User.withUsername("user")
