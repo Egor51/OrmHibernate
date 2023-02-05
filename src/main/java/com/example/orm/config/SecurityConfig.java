@@ -19,13 +19,17 @@ public class SecurityConfig {
     public UserDetailsService userDetailsService() {
         UserDetails user = User.withUsername("user")
                 .password("{noop}password")
-                .authorities("ROLE_USER")
+                .authorities("ROLE_READ")
                 .build();
         UserDetails admin = User.withUsername("admin")
                 .password("{noop}password")
-                .authorities("ROLE_ADMIN","ROLE_USER")
+                .authorities("ROLE_WRITE","ROLE_READ","ROLE_DELETE")
                 .build();
-        return new InMemoryUserDetailsManager(user, admin);
+        UserDetails developer = User.withUsername("developer")
+                .password("{noop}password")
+                .authorities("ROLE_WRITE")
+                .build();
+        return new InMemoryUserDetailsManager(user, admin,developer);
     }
 }
 
